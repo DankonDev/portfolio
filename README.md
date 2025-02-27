@@ -45,7 +45,7 @@
             }
         }
 
-        h1 {
+        h1, h3, p {
             color: #f4f4f4;
         }
 
@@ -96,12 +96,12 @@
         .skill-item img {
             width: 50px;
             height: 50px;
-            background: transparent; /* Usuwa tło z ikonek */
+            background: transparent;
         }
 
         .skill-item img.nodejs {
             width: 70px;
-            height: 70px; /* Poprawia proporcje NodeJS */
+            height: 70px;
         }
 
         .skill-item span {
@@ -128,25 +128,46 @@
             }
         }
 
-        /* Zmiana dla sekcji projektów mobilnych */
         .projects-container {
-            opacity: 1 !important; /* Zmieniamy opacity na pewne */
+            opacity: 1 !important;
             animation: fadeIn 1.5s ease-in-out !important;
         }
+
+        /* Styl przełącznika języka */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #444;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .language-switcher:hover {
+            background-color: #555;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Daniel Sitkiewicz</h1>
+    <!-- Przełącznik języka -->
+    <div class="language-switcher" onclick="toggleLanguage()">
+        <span id="lang-switch-text">PL</span>
     </div>
 
-    <div class="container animate-scroll">
-        <h1>O mnie</h1>
-        <p>Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.</p>
+    <div class="container" id="container-name">
+        <h1 id="name">Daniel Sitkiewicz</h1>
+    </div>
+
+    <div class="container animate-scroll" id="container-about">
+        <h1 id="about-heading">O mnie</h1>
+        <p id="about-text">Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.</p>
     </div>
     
-    <div class="container animate-scroll">
-        <h1>Narzędzia i doświadczenie</h1>
+    <div class="container animate-scroll" id="container-tools">
+        <h1 id="tools-heading">Narzędzia i doświadczenie</h1>
         <div class="skills-grid">
             <div class="skill-item">
                 <img src="unity.png" alt="Unity Engine">
@@ -171,11 +192,11 @@
         </div>
     </div>
     
-    <div class="container animate-scroll">
-        <h1>Bouncy Escape</h1>
-        <p>Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.</p>
-        <p><strong>Funkcje w grze:</strong></p>
-        <ul>
+    <div class="container animate-scroll" id="container-bouncy">
+        <h1 id="bouncy-heading">Bouncy Escape</h1>
+        <p id="bouncy-description">Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.</p>
+        <p><strong id="bouncy-features-heading">Funkcje w grze:</strong></p>
+        <ul id="bouncy-features">
             <li>Multiplayer z użyciem Unity Netcode</li>
             <li>Synchronizacja ze Steamworks (statystyki, achievementy i DLC)</li>
             <li>Synchronizacja z Discord Rich Presence</li>
@@ -188,26 +209,87 @@
         <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
     </div>
 
-    <div class="container projects-container animate-scroll">
-        <h1>Projekty mobilne</h1>
+    <div class="container projects-container animate-scroll" id="container-projects">
+        <h1 id="projects-heading">Projekty mobilne</h1>
         
         <div>
-            <h3>Kill Apps Challenge</h3>
-            <p>Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.</p>
+            <h3 id="kill-apps-title">Kill Apps Challenge</h3>
+            <p id="kill-apps-desc">Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.</p>
             <a href="https://play.google.com/store/apps/details?id=com.Dankon.KillAppsChallenge.KillApps.Challenge.Freegame&hl=pl" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
         
         <div>
-            <h3>Idle Candy Clicker Tycoon</h3>
-            <p>Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.</p>
+            <h3 id="idle-candy-title">Idle Candy Clicker Tycoon</h3>
+            <p id="idle-candy-desc">Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.</p>
             <a href="https://play.google.com/store/apps/details?id=com.Dankon.IdleCandyClicker.IdleClicker.CandyClicker.Clicker.IdleGame.Idle" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
 
         <div>
-            <h3>Build Master: City Island</h3>
-            <p>Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań.</p>
+            <h3 id="build-master-title">Build Master: City Island</h3>
+            <p id="build-master-desc">Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań.</p>
             <a href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
     </div>
+
+    <script>
+        let language = 'pl'; // Domyślnie polski
+
+        const translations = {
+            pl: {
+                name: "Daniel Sitkiewicz",
+                aboutHeading: "O mnie",
+                aboutText: "Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.",
+                toolsHeading: "Narzędzia i doświadczenie",
+                bouncyHeading: "Bouncy Escape",
+                bouncyDescription: "Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.",
+                bouncyFeaturesHeading: "Funkcje w grze",
+                killAppsTitle: "Kill Apps Challenge",
+                killAppsDesc: "Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.",
+                idleCandyTitle: "Idle Candy Clicker Tycoon",
+                idleCandyDesc: "Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.",
+                buildMasterTitle: "Build Master: City Island",
+                buildMasterDesc: "Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań."
+            },
+            en: {
+                name: "Daniel Sitkiewicz",
+                aboutHeading: "About Me",
+                aboutText: "I am a game developer and programmer with over 5 years of experience working with Unity engine. I have focused on mobile and computer game development from the start, successfully releasing projects on various platforms. In the past, I have collaborated within project teams, but recently I have taken full responsibility for all stages of game creation – from idea, through production, to publication. This path has allowed me to expand my skills in many areas related to game creation and publishing. I regularly use the latest technologies, including AI tools, to streamline processes and create innovative solutions. I am still developing my skills by engaging in new, ambitious projects.",
+                toolsHeading: "Tools and Experience",
+                bouncyHeading: "Bouncy Escape",
+                bouncyDescription: "Bouncy Escape is a dynamic 3D platform game with a multiplayer mode.",
+                bouncyFeaturesHeading: "Game Features",
+                killAppsTitle: "Kill Apps Challenge",
+                killAppsDesc: "A game inspired by the popular trend on TikTok. Over 3450 downloads.",
+                idleCandyTitle: "Idle Candy Clicker Tycoon",
+                idleCandyDesc: "An idle game where the player manages a candy empire. Over 2900 downloads.",
+                buildMasterTitle: "Build Master: City Island",
+                buildMasterDesc: "A game where the player can manage building an island and developing a city. Over 130 downloads."
+            }
+        };
+
+        // Funkcja zmieniająca język
+        function toggleLanguage() {
+            language = (language === 'pl') ? 'en' : 'pl'; // Zmieniamy język
+            document.getElementById("lang-switch-text").textContent = (language === 'pl') ? "PL" : "EN"; // Zmiana tekstu przycisku
+            applyTranslations();
+        }
+
+        // Funkcja stosująca tłumaczenia
+        function applyTranslations() {
+            document.getElementById("name").textContent = translations[language].name;
+            document.getElementById("about-heading").textContent = translations[language].aboutHeading;
+            document.getElementById("about-text").textContent = translations[language].aboutText;
+            document.getElementById("tools-heading").textContent = translations[language].toolsHeading;
+            document.getElementById("bouncy-heading").textContent = translations[language].bouncyHeading;
+            document.getElementById("bouncy-description").textContent = translations[language].bouncyDescription;
+            document.getElementById("bouncy-features-heading").textContent = translations[language].bouncyFeaturesHeading;
+            document.getElementById("kill-apps-title").textContent = translations[language].killAppsTitle;
+            document.getElementById("kill-apps-desc").textContent = translations[language].killAppsDesc;
+            document.getElementById("idle-candy-title").textContent = translations[language].idleCandyTitle;
+            document.getElementById("idle-candy-desc").textContent = translations[language].idleCandyDesc;
+            document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
+            document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
+        }
+    </script>
 </body>
 </html>
