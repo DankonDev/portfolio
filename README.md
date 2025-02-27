@@ -79,17 +79,15 @@
 <body>
     <div class="container">
         <h1>Daniel Sitkiewicz</h1>
-        <p>Zapraszam do zapoznania się z moimi projektami i doświadczeniem.</p>
     </div>
 
     <div class="container">
         <h1>O mnie</h1>
-        <p>Jestem doświadczonym twórcą gier i programistą, który realizował projekty od A do Z. Mam doświadczenie w tworzeniu gier 3D, pracy z Unity, Firebase oraz wielu innych technologiach. Moje pasje obejmują programowanie, projektowanie gier oraz rozwój nowych technologii w branży gier.</p>
+        <p>Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier — od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.</p>
     </div>
     
     <div class="container">
         <h1>Narzędzia i doświadczenie</h1>
-        <p>Pracowałem z wieloma technologiami i narzędziami:</p>
         <div class="skills-grid">
             <div class="skill-item">
                 <img src="unity.png" alt="Unity Engine">
@@ -116,25 +114,23 @@
     
     <div class="container">
         <h1>Bouncy Escape</h1>
-        <p>Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym. Oferuje różne tryby gry, personalizację postaci i intensywną rozgrywkę.</p>
+        <p>Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.</p>
         <p><strong>Funkcje w grze:</strong></p>
         <ul>
             <li>Multiplayer z użyciem Unity Netcode</li>
             <li>Synchronizacja ze Steamworks (statystyki, achievementy i DLC)</li>
             <li>Synchronizacja z Discord Rich Presence</li>
-            <li>Fizyka i synchronizacja piłki między klientami</li>
+            <li>Fizyka i synchronizacja objektów dynamicznych między klientami (np. piłka)</li>
             <li>Losowy generator poziomów</li>
             <li>System emoji umożliwiający graczom komunikację</li>
             <li>System tworzenia i zarządzania lobby</li>
         </ul>
         <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
-        <p>Więcej informacji oraz kod źródłowy znajdziesz tutaj:</p>
         <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
     </div>
 
     <div class="container">
         <h1>Projekty mobilne</h1>
-        <p>Oto gry mobilne, które opublikowałem na Google Play Store:</p>
         
         <div>
             <h3>Kill Apps Challenge</h3>
