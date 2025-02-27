@@ -68,8 +68,8 @@
             background: transparent; /* Usuwa tło z ikonek */
         }
         .skill-item img.nodejs {
-            width: 40px;
-            height: 40px; /* Zmniejsza skalę dla Node.js */
+            width: 60px;
+            height: 60px; /* Zwiększa szerokość i wysokość Node.js */
         }
         .skill-item span {
             margin-top: 5px;
@@ -127,11 +127,34 @@
             <li>Fizyka i synchronizacja piłki między klientami</li>
             <li>Losowy generator poziomów</li>
             <li>System emoji umożliwiający graczom komunikację</li>
-            <li>System tworzenia publicznych i prywatnych lobby oraz zarządzanie nimi</li>
+            <li>System tworzenia i zarządzania lobby</li>
         </ul>
         <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
         <p>Więcej informacji oraz kod źródłowy znajdziesz tutaj:</p>
         <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
+    </div>
+
+    <div class="container">
+        <h1>Projekty mobilne</h1>
+        <p>Oto gry mobilne, które opublikowałem na Google Play Store:</p>
+        
+        <div>
+            <h3>Kill Apps Challenge</h3>
+            <p>Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.Dankon.KillAppsChallenge.KillApps.Challenge.Freegame&hl=pl" class="btn" target="_blank">Zobacz na Google Play</a>
+        </div>
+        
+        <div>
+            <h3>Idle Candy Clicker Tycoon</h3>
+            <p>Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.Dankon.IdleCandyClicker.IdleClicker.CandyClicker.Clicker.IdleGame.Idle" class="btn" target="_blank">Zobacz na Google Play</a>
+        </div>
+
+        <div>
+            <h3>Build Master: City Island</h3>
+            <p>Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder" class="btn" target="_blank">Zobacz na Google Play</a>
+        </div>
     </div>
 </body>
 </html>
