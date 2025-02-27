@@ -206,7 +206,6 @@
             <li>System tworzenia i zarządzania lobby</li>
         </ul>
         <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
-        <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
     </div>
 
     <div class="container projects-container animate-scroll" id="container-projects">
@@ -227,7 +226,7 @@
         <div>
             <h3 id="build-master-title">Build Master: City Island</h3>
             <p id="build-master-desc">Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto...</p>
-            <a href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder" class="btn" target="_blank">Zobacz na Google Play</a>
+            <a id="build-master-btn" href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
     </div>
 
@@ -258,7 +257,6 @@
                     "System emoji umożliwiający graczom komunikację",
                     "System tworzenia i zarządzania lobby"
                 ],
-                bouncySteamBtn: "Zobacz na Steam",
                 killAppsBtn: "Zobacz na Google Play",
                 idleCandyBtn: "Zobacz na Google Play",
                 buildMasterBtn: "Zobacz na Google Play",
@@ -286,7 +284,6 @@
                     "Emoji system allowing players to communicate",
                     "Lobby creation and management system"
                 ],
-                bouncySteamBtn: "View on Steam",
                 killAppsBtn: "View on Google Play",
                 idleCandyBtn: "View on Google Play",
                 buildMasterBtn: "View on Google Play",
@@ -316,22 +313,15 @@
             document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
             document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
 
-            // Funkcje w grze
-            const features = translations[language].bouncyFeatures;
-            const ul = document.getElementById("bouncy-features");
-            ul.innerHTML = "";
-            features.forEach(feature => {
-                const li = document.createElement("li");
-                li.textContent = feature;
-                ul.appendChild(li);
-            });
-
             // Przyciski
-            document.querySelectorAll('a').forEach((btn, index) => {
-                if(index === 0) btn.textContent = translations[language].bouncySteamBtn;
-                else if(index === 1) btn.textContent = translations[language].killAppsBtn;
-                else if(index === 2) btn.textContent = translations[language].idleCandyBtn;
-                else if(index === 3) btn.textContent = translations[language].buildMasterBtn;
+            document.querySelectorAll('.btn').forEach((btn) => {
+                if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Build Master: City Island") {
+                    btn.textContent = translations[language].buildMasterBtn;
+                }
+                // Pozostałe przyciski
+                else if(btn.textContent.includes('Zobacz na Google Play') && language === 'pl') {
+                    btn.textContent = translations[language].killAppsBtn;
+                }
             });
         }
 
