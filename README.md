@@ -152,7 +152,6 @@
     </style>
 </head>
 <body>
-    <!-- Przełącznik języka -->
     <div class="language-switcher" onclick="toggleLanguage()">
         <span id="lang-switch-text">PL</span>
     </div>
@@ -260,6 +259,7 @@
                 killAppsBtn: "Zobacz na Google Play",
                 idleCandyBtn: "Zobacz na Google Play",
                 buildMasterBtn: "Zobacz na Google Play",
+                projectsHeading: "Projekty mobilne",
             },
             en: {
                 name: "Daniel Sitkiewicz",
@@ -287,17 +287,16 @@
                 killAppsBtn: "View on Google Play",
                 idleCandyBtn: "View on Google Play",
                 buildMasterBtn: "View on Google Play",
+                projectsHeading: "Mobile Projects",
             }
         };
 
-        // Funkcja zmieniająca język
         function toggleLanguage() {
-            language = (language === 'pl') ? 'en' : 'pl'; // Zmieniamy język
-            document.getElementById("lang-switch-text").textContent = (language === 'pl') ? "PL" : "EN"; // Zmiana tekstu przycisku
+            language = (language === 'pl') ? 'en' : 'pl';
+            document.getElementById("lang-switch-text").textContent = (language === 'pl') ? "PL" : "EN";
             applyTranslations();
         }
 
-        // Funkcja stosująca tłumaczenia
         function applyTranslations() {
             document.getElementById("name").textContent = translations[language].name;
             document.getElementById("about-heading").textContent = translations[language].aboutHeading;
@@ -312,22 +311,27 @@
             document.getElementById("idle-candy-desc").textContent = translations[language].idleCandyDesc;
             document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
             document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
+            document.getElementById("projects-heading").textContent = translations[language].projectsHeading;
 
-            // Przyciski
             document.querySelectorAll('.btn').forEach((btn) => {
                 if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Build Master: City Island") {
                     btn.textContent = translations[language].buildMasterBtn;
                 } else if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Idle Candy Clicker Tycoon") {
-                    // Dodajemy tłumaczenie dla Idle Candy Clicker Tycoon
                     btn.textContent = translations[language].idleCandyBtn;
                 } else if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Kill Apps Challenge") {
                     btn.textContent = translations[language].killAppsBtn;
                 }
             });
+
+            const bouncyFeaturesList = document.getElementById("bouncy-features");
+            bouncyFeaturesList.innerHTML = '';
+            translations[language].bouncyFeatures.forEach(feature => {
+                const li = document.createElement("li");
+                li.textContent = feature;
+                bouncyFeaturesList.appendChild(li);
+            });
         }
 
-
-        // Naładowanie tłumaczeń przy starcie
         window.onload = applyTranslations;
     </script>
 </body>
