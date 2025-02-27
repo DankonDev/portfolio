@@ -1,8 +1,11 @@
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Daniel Sitkiewicz</title>
     <style>
+        /* General styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -11,16 +14,6 @@
             color: white;
             text-align: center;
             overflow-x: hidden;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
         }
 
         .container {
@@ -31,32 +24,44 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             opacity: 0;
-            animation: slideIn 0.8s ease-out forwards;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        @keyframes slideIn {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        h1, h3, p {
+        /* Animation classes for sliding and fading in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .slide-in.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        h1, h3 {
             color: #f4f4f4;
         }
 
-        p {
+        p, span {
             color: #ddd;
-        }
-
-        .screenshot {
-            width: 100%;
-            border-radius: 10px;
-            margin: 20px 0;
         }
 
         .btn {
@@ -99,75 +104,40 @@
             background: transparent;
         }
 
+        /* Skills image size for NodeJS */
         .skill-item img.nodejs {
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px; /* Keeping size uniform */
         }
 
-        .skill-item span {
-            margin-top: 5px;
-            font-size: 14px;
-            color: #fff;
-        }
-
-        /* Animacja przy przewijaniu */
-        .animate-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards;
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .projects-container {
-            opacity: 1 !important;
-            animation: fadeIn 1.5s ease-in-out !important;
-        }
-
-        /* Styl przełącznika języka */
-        .language-switcher {
+        /* Add styles for the language switcher */
+        .lang-switcher {
             position: fixed;
             top: 20px;
             right: 20px;
-            background-color: #444;
-            padding: 10px 20px;
+            background: #333;
+            padding: 10px;
             border-radius: 5px;
             cursor: pointer;
-            color: white;
         }
-
-        .language-switcher:hover {
-            background-color: #555;
-        }
-
     </style>
 </head>
 <body>
-    <!-- Przełącznik języka -->
-    <div class="language-switcher" onclick="toggleLanguage()">
-        <span id="lang-switch-text">PL</span>
+    <div class="lang-switcher" onclick="toggleLanguage()">
+        EN / PL
     </div>
 
-    <div class="container" id="container-name">
+    <div class="container fade-in" id="name-container">
         <h1 id="name">Daniel Sitkiewicz</h1>
     </div>
 
-    <div class="container animate-scroll" id="container-about">
-        <h1 id="about-heading">O mnie</h1>
-        <p id="about-text">Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.</p>
+    <div class="container fade-in" id="about-container">
+        <h1 id="about-title">O mnie</h1>
+        <p id="about-text">Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy...</p>
     </div>
-    
-    <div class="container animate-scroll" id="container-tools">
-        <h1 id="tools-heading">Narzędzia i doświadczenie</h1>
+
+    <div class="container slide-in" id="skills-container">
+        <h1 id="skills-title">Narzędzia i doświadczenie</h1>
         <div class="skills-grid">
             <div class="skill-item">
                 <img src="unity.png" alt="Unity Engine">
@@ -191,33 +161,21 @@
             </div>
         </div>
     </div>
-    
-    <div class="container animate-scroll" id="container-bouncy">
-        <h1 id="bouncy-heading">Bouncy Escape</h1>
-        <p id="bouncy-description">Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.</p>
-        <p><strong id="bouncy-features-heading">Funkcje w grze:</strong></p>
-        <ul id="bouncy-features">
-            <li>Multiplayer z użyciem Unity Netcode</li>
-            <li>Synchronizacja ze Steamworks (statystyki, achievementy i DLC)</li>
-            <li>Synchronizacja z Discord Rich Presence</li>
-            <li>Fizyka i synchronizacja objektów dynamicznych między klientami (np. piłka)</li>
-            <li>Losowy generator poziomów</li>
-            <li>System emoji umożliwiający graczom komunikację</li>
-            <li>System tworzenia i zarządzania lobby</li>
-        </ul>
-        <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
-        <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
+
+    <div class="container fade-in" id="game-container">
+        <h1 id="game-title">Bouncy Escape</h1>
+        <p id="game-description">Bouncy Escape to dynamiczna gra platformowa 3D...</p>
+        <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank" id="steam-btn">Zobacz na Steam</a>
     </div>
 
-    <div class="container projects-container animate-scroll" id="container-projects">
-        <h1 id="projects-heading">Projekty mobilne</h1>
-        
+    <div class="container fade-in" id="mobile-games-container">
+        <h1 id="mobile-games-title">Projekty mobilne</h1>
         <div>
             <h3 id="kill-apps-title">Kill Apps Challenge</h3>
             <p id="kill-apps-desc">Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.</p>
             <a href="https://play.google.com/store/apps/details?id=com.Dankon.KillAppsChallenge.KillApps.Challenge.Freegame&hl=pl" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
-        
+
         <div>
             <h3 id="idle-candy-title">Idle Candy Clicker Tycoon</h3>
             <p id="idle-candy-desc">Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.</p>
@@ -232,64 +190,56 @@
     </div>
 
     <script>
-        let language = 'pl'; // Domyślnie polski
+        // Toggle language function
+        let isEnglish = false;
 
-        const translations = {
-            pl: {
-                name: "Daniel Sitkiewicz",
-                aboutHeading: "O mnie",
-                aboutText: "Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.",
-                toolsHeading: "Narzędzia i doświadczenie",
-                bouncyHeading: "Bouncy Escape",
-                bouncyDescription: "Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.",
-                bouncyFeaturesHeading: "Funkcje w grze",
-                killAppsTitle: "Kill Apps Challenge",
-                killAppsDesc: "Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.",
-                idleCandyTitle: "Idle Candy Clicker Tycoon",
-                idleCandyDesc: "Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.",
-                buildMasterTitle: "Build Master: City Island",
-                buildMasterDesc: "Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań."
-            },
-            en: {
-                name: "Daniel Sitkiewicz",
-                aboutHeading: "About Me",
-                aboutText: "I am a game developer and programmer with over 5 years of experience working with Unity engine. I have focused on mobile and computer game development from the start, successfully releasing projects on various platforms. In the past, I have collaborated within project teams, but recently I have taken full responsibility for all stages of game creation – from idea, through production, to publication. This path has allowed me to expand my skills in many areas related to game creation and publishing. I regularly use the latest technologies, including AI tools, to streamline processes and create innovative solutions. I am still developing my skills by engaging in new, ambitious projects.",
-                toolsHeading: "Tools and Experience",
-                bouncyHeading: "Bouncy Escape",
-                bouncyDescription: "Bouncy Escape is a dynamic 3D platform game with a multiplayer mode.",
-                bouncyFeaturesHeading: "Game Features",
-                killAppsTitle: "Kill Apps Challenge",
-                killAppsDesc: "A game inspired by the popular trend on TikTok. Over 3450 downloads.",
-                idleCandyTitle: "Idle Candy Clicker Tycoon",
-                idleCandyDesc: "An idle game where the player manages a candy empire. Over 2900 downloads.",
-                buildMasterTitle: "Build Master: City Island",
-                buildMasterDesc: "A game where the player can manage building an island and developing a city. Over 130 downloads."
-            }
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+
+            // Update text content based on the selected language
+            document.getElementById('about-title').innerText = isEnglish ? 'About Me' : 'O mnie';
+            document.getElementById('about-text').innerText = isEnglish ? 
+                'I am a game developer and programmer with over 5 years of experience working on Unity Engine. From the start, I focused on creating mobile and computer games, successfully releasing projects on various platforms...' : 
+                'Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity...';
+
+            document.getElementById('skills-title').innerText = isEnglish ? 'Tools and Experience' : 'Narzędzia i doświadczenie';
+            document.getElementById('game-title').innerText = isEnglish ? 'Bouncy Escape' : 'Bouncy Escape';
+            document.getElementById('game-description').innerText = isEnglish ? 'Bouncy Escape is a dynamic 3D platform game...' : 'Bouncy Escape to dynamiczna gra platformowa 3D...';
+            document.getElementById('steam-btn').innerText = isEnglish ? 'See on Steam' : 'Zobacz na Steam';
+
+            document.getElementById('mobile-games-title').innerText = isEnglish ? 'Mobile Projects' : 'Projekty mobilne';
+
+            document.getElementById('kill-apps-title').innerText = isEnglish ? 'Kill Apps Challenge' : 'Kill Apps Challenge';
+            document.getElementById('kill-apps-desc').innerText = isEnglish ? 'A game created based on the popular TikTok trend. Over 3450 downloads.' : 'Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.';
+
+            document.getElementById('idle-candy-title').innerText = isEnglish ? 'Idle Candy Clicker Tycoon' : 'Idle Candy Clicker Tycoon';
+            document.getElementById('idle-candy-desc').innerText = isEnglish ? 'An idle game where the player manages a candy empire. Over 2900 downloads.' : 'Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.';
+
+            document.getElementById('build-master-title').innerText = isEnglish ? 'Build Master: City Island' : 'Build Master: City Island';
+            document.getElementById('build-master-desc').innerText = isEnglish ? 'A game where the player manages the construction of an island and develops their city. Over 130 downloads.' : 'Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań.';
+        }
+
+        // Function to handle scroll animations
+        const elementsToAnimate = document.querySelectorAll('.fade-in, .slide-in');
+
+        // Function to check if elements are in view
+        const isInViewport = (element) => {
+            const rect = element.getBoundingClientRect();
+            return rect.top >= 0 && rect.bottom <= window.innerHeight;
         };
 
-        // Funkcja zmieniająca język
-        function toggleLanguage() {
-            language = (language === 'pl') ? 'en' : 'pl'; // Zmieniamy język
-            document.getElementById("lang-switch-text").textContent = (language === 'pl') ? "PL" : "EN"; // Zmiana tekstu przycisku
-            applyTranslations();
-        }
+        // Add or remove the 'visible' class on scroll
+        const checkScrollAnimations = () => {
+            elementsToAnimate.forEach(element => {
+                if (isInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        };
 
-        // Funkcja stosująca tłumaczenia
-        function applyTranslations() {
-            document.getElementById("name").textContent = translations[language].name;
-            document.getElementById("about-heading").textContent = translations[language].aboutHeading;
-            document.getElementById("about-text").textContent = translations[language].aboutText;
-            document.getElementById("tools-heading").textContent = translations[language].toolsHeading;
-            document.getElementById("bouncy-heading").textContent = translations[language].bouncyHeading;
-            document.getElementById("bouncy-description").textContent = translations[language].bouncyDescription;
-            document.getElementById("bouncy-features-heading").textContent = translations[language].bouncyFeaturesHeading;
-            document.getElementById("kill-apps-title").textContent = translations[language].killAppsTitle;
-            document.getElementById("kill-apps-desc").textContent = translations[language].killAppsDesc;
-            document.getElementById("idle-candy-title").textContent = translations[language].idleCandyTitle;
-            document.getElementById("idle-candy-desc").textContent = translations[language].idleCandyDesc;
-            document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
-            document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
-        }
+        // Check on page load and scroll
+        window.addEventListener('scroll', checkScrollAnimations);
+        window.addEventListener('load', checkScrollAnimations); // Ensure animations work on page load
     </script>
 </body>
 </html>
