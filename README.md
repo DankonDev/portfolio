@@ -128,8 +128,10 @@
             }
         }
 
+        /* Zmiana dla sekcji projektów mobilnych */
         .projects-container {
-            animation: fadeIn 1.5s ease-in-out;
+            opacity: 1 !important; /* Zmieniamy opacity na pewne */
+            animation: fadeIn 1.5s ease-in-out !important;
         }
     </style>
 </head>
