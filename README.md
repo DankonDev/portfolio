@@ -1,9 +1,7 @@
-<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje Portfolio - Projekt</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -80,7 +78,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Portfolio</h1>
+        <h1>Daniel Sitkiewicz</h1>
         <p>Zapraszam do zapoznania się z moimi projektami i doświadczeniem.</p>
     </div>
 
