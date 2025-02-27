@@ -67,6 +67,10 @@
             height: 50px;
             background: transparent; /* Usuwa tło z ikonek */
         }
+        .skill-item img.nodejs {
+            width: 40px;
+            height: 40px; /* Zmniejsza skalę dla Node.js */
+        }
         .skill-item span {
             margin-top: 5px;
             font-size: 14px;
@@ -75,6 +79,16 @@
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Portfolio</h1>
+        <p>Zapraszam do zapoznania się z moimi projektami i doświadczeniem.</p>
+    </div>
+
+    <div class="container">
+        <h1>O mnie</h1>
+        <p>Jestem doświadczonym twórcą gier i programistą, który realizował projekty od A do Z. Mam doświadczenie w tworzeniu gier 3D, pracy z Unity, Firebase oraz wielu innych technologiach. Moje pasje obejmują programowanie, projektowanie gier oraz rozwój nowych technologii w branży gier.</p>
+    </div>
+    
     <div class="container">
         <h1>Narzędzia i doświadczenie</h1>
         <p>Pracowałem z wieloma technologiami i narzędziami:</p>
@@ -92,7 +106,7 @@
                 <span>VS Code</span>
             </div>
             <div class="skill-item">
-                <img src="nodejs.png" alt="NodeJS">
+                <img src="nodejs.png" alt="NodeJS" class="nodejs">
                 <span>NodeJS</span>
             </div>
             <div class="skill-item">
@@ -105,6 +119,16 @@
     <div class="container">
         <h1>Bouncy Escape</h1>
         <p>Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym. Oferuje różne tryby gry, personalizację postaci i intensywną rozgrywkę.</p>
+        <p><strong>Funkcje w grze:</strong></p>
+        <ul>
+            <li>Multiplayer z użyciem Unity Netcode</li>
+            <li>Synchronizacja ze Steamworks (statystyki, achievementy i DLC)</li>
+            <li>Synchronizacja z Discord Rich Presence</li>
+            <li>Fizyka i synchronizacja piłki między klientami</li>
+            <li>Losowy generator poziomów</li>
+            <li>System emoji umożliwiający graczom komunikację</li>
+            <li>System tworzenia publicznych i prywatnych lobby oraz zarządzanie nimi</li>
+        </ul>
         <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
         <p>Więcej informacji oraz kod źródłowy znajdziesz tutaj:</p>
         <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
