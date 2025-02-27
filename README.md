@@ -49,7 +49,7 @@
     <div class="container">
         <h1>Nazwa Twojego Projektu</h1>
         <p>Krótki opis projektu - co robi, jakie technologie wykorzystuje, dlaczego jest wyjątkowy.</p>
-        <img src="screenshot.jpg" alt="Zrzut ekranu projektu" class="screenshot">
+        <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
         <p>Więcej informacji oraz kod źródłowy znajdziesz tutaj:</p>
         <a href="https://github.com/twoj-repozytorium" class="btn" target="_blank">Zobacz na GitHub</a>
     </div>
