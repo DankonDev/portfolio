@@ -10,7 +10,19 @@
             background-color: #333;
             color: white;
             text-align: center;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in-out;
         }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -18,18 +30,35 @@
             background: #444;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: slideIn 0.8s ease-out forwards;
         }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         h1 {
             color: #f4f4f4;
         }
+
         p {
             color: #ddd;
         }
+
         .screenshot {
             width: 100%;
             border-radius: 10px;
             margin: 20px 0;
         }
+
         .btn {
             display: inline-block;
             padding: 10px 20px;
@@ -39,9 +68,11 @@
             color: white;
             border-radius: 5px;
         }
+
         .btn:hover {
             background: #0056b3;
         }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -51,6 +82,7 @@
             border-radius: 10px;
             margin-top: 20px;
         }
+
         .skill-item {
             display: flex;
             flex-direction: column;
@@ -60,19 +92,44 @@
             border-radius: 8px;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
         }
+
         .skill-item img {
             width: 50px;
             height: 50px;
             background: transparent; /* Usuwa tło z ikonek */
         }
+
         .skill-item img.nodejs {
-            width: 60px;
-            height: 60px; /* Zwiększa szerokość i wysokość Node.js */
+            width: 70px;
+            height: 70px; /* Poprawia proporcje NodeJS */
         }
+
         .skill-item span {
             margin-top: 5px;
             font-size: 14px;
             color: #fff;
+        }
+
+        /* Animacja przy przewijaniu */
+        .animate-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .projects-container {
+            animation: fadeIn 1.5s ease-in-out;
         }
     </style>
 </head>
@@ -81,12 +138,12 @@
         <h1>Daniel Sitkiewicz</h1>
     </div>
 
-    <div class="container">
+    <div class="container animate-scroll">
         <h1>O mnie</h1>
-        <p>Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier — od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.</p>
+        <p>Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.</p>
     </div>
     
-    <div class="container">
+    <div class="container animate-scroll">
         <h1>Narzędzia i doświadczenie</h1>
         <div class="skills-grid">
             <div class="skill-item">
@@ -112,7 +169,7 @@
         </div>
     </div>
     
-    <div class="container">
+    <div class="container animate-scroll">
         <h1>Bouncy Escape</h1>
         <p>Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.</p>
         <p><strong>Funkcje w grze:</strong></p>
@@ -129,7 +186,7 @@
         <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
     </div>
 
-    <div class="container">
+    <div class="container projects-container animate-scroll">
         <h1>Projekty mobilne</h1>
         
         <div>
