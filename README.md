@@ -92,23 +92,23 @@
         <p>Pracowałem z wieloma technologiami i narzędziami:</p>
         <div class="skills-grid">
             <div class="skill-item">
-                <img src="assets/unity.png" alt="Unity Engine">
+                <img src="unity.png" alt="Unity Engine">
                 <span>Unity Engine</span>
             </div>
             <div class="skill-item">
-                <img src="assets/firebase.png" alt="Firebase">
+                <img src="firebase.png" alt="Firebase">
                 <span>Firebase</span>
             </div>
             <div class="skill-item">
-                <img src="assets/vscode.png" alt="VS Code">
+                <img src="vscode.png" alt="VS Code">
                 <span>VS Code</span>
             </div>
             <div class="skill-item">
-                <img src="assets/nodejs.png" alt="NodeJS">
+                <img src="nodejs.png" alt="NodeJS">
                 <span>NodeJS</span>
             </div>
             <div class="skill-item">
-                <img src="assets/googleads.png" alt="Google Ads">
+                <img src="googleads.png" alt="Google Ads">
                 <span>Google Ads</span>
             </div>
         </div>
