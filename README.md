@@ -44,6 +44,33 @@
         .btn:hover {
             background: #0056b3;
         }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            background: #555;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #666;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+        }
+        .skill-item img {
+            width: 50px;
+            height: 50px;
+        }
+        .skill-item span {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -63,13 +90,28 @@
     <div class="container">
         <h1>Narzędzia i doświadczenie</h1>
         <p>Pracowałem z wieloma technologiami i narzędziami:</p>
-        <ul>
-            <li>Unity, Unreal Engine</li>
-            <li>JavaScript, Python, C#</li>
-            <li>Google Ads, Facebook Ads</li>
-            <li>Social Media Marketing</li>
-            <li>Zarządzanie projektami (Trello, Asana, Jira)</li>
-        </ul>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <img src="assets/unity.png" alt="Unity Engine">
+                <span>Unity Engine</span>
+            </div>
+            <div class="skill-item">
+                <img src="assets/firebase.png" alt="Firebase">
+                <span>Firebase</span>
+            </div>
+            <div class="skill-item">
+                <img src="assets/vscode.png" alt="VS Code">
+                <span>VS Code</span>
+            </div>
+            <div class="skill-item">
+                <img src="assets/nodejs.png" alt="NodeJS">
+                <span>NodeJS</span>
+            </div>
+            <div class="skill-item">
+                <img src="assets/googleads.png" alt="Google Ads">
+                <span>Google Ads</span>
+            </div>
+        </div>
     </div>
 </body>
 </html>
