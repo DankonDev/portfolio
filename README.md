@@ -249,6 +249,19 @@
                 idleCandyDesc: "Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.",
                 buildMasterTitle: "Build Master: City Island",
                 buildMasterDesc: "Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań."
+                bouncySteamBtn: "Zobacz na Steam",
+                        bouncyFeatures: [
+            "Multiplayer z użyciem Unity Netcode",
+            "Synchronizacja ze Steamworks (statystyki, achievementy i DLC)",
+            "Synchronizacja z Discord Rich Presence",
+            "Fizyka i synchronizacja objektów dynamicznych między klientami (np. piłka)",
+            "Losowy generator poziomów",
+            "System emoji umożliwiający graczom komunikację",
+            "System tworzenia i zarządzania lobby"
+        ],
+                killAppsBtn: "Zobacz na Google Play",
+                idleCandyBtn: "Zobacz na Google Play",
+                buildMasterBtn: "Zobacz na Google Play",
             },
             en: {
                 name: "Daniel Sitkiewicz",
@@ -264,8 +277,27 @@
                 idleCandyDesc: "An idle game where the player manages a candy empire. Over 2900 downloads.",
                 buildMasterTitle: "Build Master: City Island",
                 buildMasterDesc: "A game where the player can manage building an island and developing a city. Over 130 downloads."
+                        bouncyFeatures: [
+            "Multiplayer using Unity Netcode",
+            "Synchronization with Steamworks (stats, achievements, and DLC)",
+            "Synchronization with Discord Rich Presence",
+            "Physics and synchronization of dynamic objects between clients (e.g., ball)",
+            "Random level generator",
+            "Emoji system allowing players to communicate",
+            "Lobby creation and management system"
+        ],
+                bouncySteamBtn: "View on Steam",
+                killAppsBtn: "View on Google Play",
+                idleCandyBtn: "View on Google Play",
+                buildMasterBtn: "View on Google Play",
             }
         };
+        function updateButtons() {
+    document.querySelector('a[href="https://store.steampowered.com/app/3256880/Bouncy_Escape/"]').textContent = translations[language].bouncySteamBtn;
+    document.querySelector('a[href="https://play.google.com/store/apps/details?id=com.Dankon.KillAppsChallenge.KillApps.Challenge.Freegame&hl=pl"]').textContent = translations[language].killAppsBtn;
+    document.querySelector('a[href="https://play.google.com/store/apps/details?id=com.Dankon.IdleCandyClicker.IdleClicker.CandyClicker.Clicker.IdleGame.Idle"]').textContent = translations[language].idleCandyBtn;
+    document.querySelector('a[href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder"]').textContent = translations[language].buildMasterBtn;
+}
 
         // Funkcja zmieniająca język
         function toggleLanguage() {
@@ -275,21 +307,34 @@
         }
 
         // Funkcja stosująca tłumaczenia
-        function applyTranslations() {
-            document.getElementById("name").textContent = translations[language].name;
-            document.getElementById("about-heading").textContent = translations[language].aboutHeading;
-            document.getElementById("about-text").textContent = translations[language].aboutText;
-            document.getElementById("tools-heading").textContent = translations[language].toolsHeading;
-            document.getElementById("bouncy-heading").textContent = translations[language].bouncyHeading;
-            document.getElementById("bouncy-description").textContent = translations[language].bouncyDescription;
-            document.getElementById("bouncy-features-heading").textContent = translations[language].bouncyFeaturesHeading;
-            document.getElementById("kill-apps-title").textContent = translations[language].killAppsTitle;
-            document.getElementById("kill-apps-desc").textContent = translations[language].killAppsDesc;
-            document.getElementById("idle-candy-title").textContent = translations[language].idleCandyTitle;
-            document.getElementById("idle-candy-desc").textContent = translations[language].idleCandyDesc;
-            document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
-            document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
-        }
+// Funkcja stosująca tłumaczenia
+function applyTranslations() {
+    document.getElementById("name").textContent = translations[language].name;
+    document.getElementById("about-heading").textContent = translations[language].aboutHeading;
+    document.getElementById("about-text").textContent = translations[language].aboutText;
+    document.getElementById("tools-heading").textContent = translations[language].toolsHeading;
+    document.getElementById("bouncy-heading").textContent = translations[language].bouncyHeading;
+    document.getElementById("bouncy-description").textContent = translations[language].bouncyDescription;
+    document.getElementById("bouncy-features-heading").textContent = translations[language].bouncyFeaturesHeading;
+    
+    // Tłumaczenie punktów w Bouncy Escape
+    const bouncyFeatures = translations[language].bouncyFeatures;
+    const bouncyFeatureList = document.getElementById("bouncy-features");
+    bouncyFeatureList.innerHTML = "";
+    bouncyFeatures.forEach(feature => {
+        const li = document.createElement("li");
+        li.textContent = feature;
+        bouncyFeatureList.appendChild(li);
+    });
+
+    document.getElementById("kill-apps-title").textContent = translations[language].killAppsTitle;
+    document.getElementById("kill-apps-desc").textContent = translations[language].killAppsDesc;
+    document.getElementById("idle-candy-title").textContent = translations[language].idleCandyTitle;
+    document.getElementById("idle-candy-desc").textContent = translations[language].idleCandyDesc;
+    document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
+    document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
+}
+
     </script>
 </body>
 </html>
