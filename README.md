@@ -163,7 +163,7 @@
 
     <div class="container animate-scroll" id="container-about">
         <h1 id="about-heading">O mnie</h1>
-        <p id="about-text">Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.</p>
+        <p id="about-text">Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity...</p>
     </div>
     
     <div class="container animate-scroll" id="container-tools">
@@ -214,19 +214,19 @@
         
         <div>
             <h3 id="kill-apps-title">Kill Apps Challenge</h3>
-            <p id="kill-apps-desc">Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.</p>
+            <p id="kill-apps-desc">Gra stworzona na wzór popularnego trendu na aplikacji TikTok...</p>
             <a href="https://play.google.com/store/apps/details?id=com.Dankon.KillAppsChallenge.KillApps.Challenge.Freegame&hl=pl" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
         
         <div>
             <h3 id="idle-candy-title">Idle Candy Clicker Tycoon</h3>
-            <p id="idle-candy-desc">Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.</p>
+            <p id="idle-candy-desc">Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium...</p>
             <a href="https://play.google.com/store/apps/details?id=com.Dankon.IdleCandyClicker.IdleClicker.CandyClicker.Clicker.IdleGame.Idle" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
 
         <div>
             <h3 id="build-master-title">Build Master: City Island</h3>
-            <p id="build-master-desc">Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań.</p>
+            <p id="build-master-desc">Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto...</p>
             <a href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
     </div>
@@ -238,27 +238,27 @@
             pl: {
                 name: "Daniel Sitkiewicz",
                 aboutHeading: "O mnie",
-                aboutText: "Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity. Od początku koncentruję się na tworzeniu gier mobilnych i komputerowych, z sukcesem wydając projekty na różne platformy. W przeszłości współpracowałem w ramach zespołów projektowych, ale od niedawna podejmuję się pełnej odpowiedzialności za wszystkie etapy realizacji gier - od pomysłu, przez produkcję, aż po publikację. Ta droga pozwoliła mi poszerzyć moje umiejętności w wielu dziedzinach związanych z tworzeniem i wydawaniem gier. Regularnie korzystam z najnowszych technologii, w tym z narzędzi sztucznej inteligencji, by usprawniać procesy i tworzyć innowacyjne rozwiązania. Wciąż rozwijam swoje umiejętności, angażując się w nowe, ambitne projekty.",
+                aboutText: "Jestem twórcą gier i programistą z ponad 5-letnim stażem pracy na silniku Unity...",
                 toolsHeading: "Narzędzia i doświadczenie",
                 bouncyHeading: "Bouncy Escape",
                 bouncyDescription: "Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym.",
                 bouncyFeaturesHeading: "Funkcje w grze",
                 killAppsTitle: "Kill Apps Challenge",
-                killAppsDesc: "Gra stworzona na wzór popularnego trendu na aplikacji TikTok. Ponad 3450 pobrań.",
+                killAppsDesc: "Gra stworzona na wzór popularnego trendu na aplikacji TikTok...",
                 idleCandyTitle: "Idle Candy Clicker Tycoon",
-                idleCandyDesc: "Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium. Ponad 2900 pobrań.",
+                idleCandyDesc: "Gra typu idle, która pozwala graczowi zarządzać cukierkowym imperium...",
                 buildMasterTitle: "Build Master: City Island",
-                buildMasterDesc: "Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto. Ponad 130 pobrań."
+                buildMasterDesc: "Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto...",
+                bouncyFeatures: [
+                    "Multiplayer z użyciem Unity Netcode",
+                    "Synchronizacja ze Steamworks (statystyki, achievementy i DLC)",
+                    "Synchronizacja z Discord Rich Presence",
+                    "Fizyka i synchronizacja objektów dynamicznych między klientami (np. piłka)",
+                    "Losowy generator poziomów",
+                    "System emoji umożliwiający graczom komunikację",
+                    "System tworzenia i zarządzania lobby"
+                ],
                 bouncySteamBtn: "Zobacz na Steam",
-                        bouncyFeatures: [
-            "Multiplayer z użyciem Unity Netcode",
-            "Synchronizacja ze Steamworks (statystyki, achievementy i DLC)",
-            "Synchronizacja z Discord Rich Presence",
-            "Fizyka i synchronizacja objektów dynamicznych między klientami (np. piłka)",
-            "Losowy generator poziomów",
-            "System emoji umożliwiający graczom komunikację",
-            "System tworzenia i zarządzania lobby"
-        ],
                 killAppsBtn: "Zobacz na Google Play",
                 idleCandyBtn: "Zobacz na Google Play",
                 buildMasterBtn: "Zobacz na Google Play",
@@ -266,38 +266,32 @@
             en: {
                 name: "Daniel Sitkiewicz",
                 aboutHeading: "About Me",
-                aboutText: "I am a game developer and programmer with over 5 years of experience working with Unity engine. I have focused on mobile and computer game development from the start, successfully releasing projects on various platforms. In the past, I have collaborated within project teams, but recently I have taken full responsibility for all stages of game creation – from idea, through production, to publication. This path has allowed me to expand my skills in many areas related to game creation and publishing. I regularly use the latest technologies, including AI tools, to streamline processes and create innovative solutions. I am still developing my skills by engaging in new, ambitious projects.",
+                aboutText: "I am a game developer and programmer with over 5 years of experience working with Unity engine...",
                 toolsHeading: "Tools and Experience",
                 bouncyHeading: "Bouncy Escape",
                 bouncyDescription: "Bouncy Escape is a dynamic 3D platform game with a multiplayer mode.",
                 bouncyFeaturesHeading: "Game Features",
                 killAppsTitle: "Kill Apps Challenge",
-                killAppsDesc: "A game inspired by the popular trend on TikTok. Over 3450 downloads.",
+                killAppsDesc: "A game inspired by the popular trend on TikTok...",
                 idleCandyTitle: "Idle Candy Clicker Tycoon",
-                idleCandyDesc: "An idle game where the player manages a candy empire. Over 2900 downloads.",
+                idleCandyDesc: "An idle game where the player manages a candy empire...",
                 buildMasterTitle: "Build Master: City Island",
-                buildMasterDesc: "A game where the player can manage building an island and developing a city. Over 130 downloads."
-                        bouncyFeatures: [
-            "Multiplayer using Unity Netcode",
-            "Synchronization with Steamworks (stats, achievements, and DLC)",
-            "Synchronization with Discord Rich Presence",
-            "Physics and synchronization of dynamic objects between clients (e.g., ball)",
-            "Random level generator",
-            "Emoji system allowing players to communicate",
-            "Lobby creation and management system"
-        ],
+                buildMasterDesc: "A game where the player can manage building an island and developing a city...",
+                bouncyFeatures: [
+                    "Multiplayer using Unity Netcode",
+                    "Synchronization with Steamworks (stats, achievements, and DLC)",
+                    "Synchronization with Discord Rich Presence",
+                    "Physics and synchronization of dynamic objects between clients (e.g., ball)",
+                    "Random level generator",
+                    "Emoji system allowing players to communicate",
+                    "Lobby creation and management system"
+                ],
                 bouncySteamBtn: "View on Steam",
                 killAppsBtn: "View on Google Play",
                 idleCandyBtn: "View on Google Play",
                 buildMasterBtn: "View on Google Play",
             }
         };
-        function updateButtons() {
-    document.querySelector('a[href="https://store.steampowered.com/app/3256880/Bouncy_Escape/"]').textContent = translations[language].bouncySteamBtn;
-    document.querySelector('a[href="https://play.google.com/store/apps/details?id=com.Dankon.KillAppsChallenge.KillApps.Challenge.Freegame&hl=pl"]').textContent = translations[language].killAppsBtn;
-    document.querySelector('a[href="https://play.google.com/store/apps/details?id=com.Dankon.IdleCandyClicker.IdleClicker.CandyClicker.Clicker.IdleGame.Idle"]').textContent = translations[language].idleCandyBtn;
-    document.querySelector('a[href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder"]').textContent = translations[language].buildMasterBtn;
-}
 
         // Funkcja zmieniająca język
         function toggleLanguage() {
@@ -307,34 +301,42 @@
         }
 
         // Funkcja stosująca tłumaczenia
-// Funkcja stosująca tłumaczenia
-function applyTranslations() {
-    document.getElementById("name").textContent = translations[language].name;
-    document.getElementById("about-heading").textContent = translations[language].aboutHeading;
-    document.getElementById("about-text").textContent = translations[language].aboutText;
-    document.getElementById("tools-heading").textContent = translations[language].toolsHeading;
-    document.getElementById("bouncy-heading").textContent = translations[language].bouncyHeading;
-    document.getElementById("bouncy-description").textContent = translations[language].bouncyDescription;
-    document.getElementById("bouncy-features-heading").textContent = translations[language].bouncyFeaturesHeading;
-    
-    // Tłumaczenie punktów w Bouncy Escape
-    const bouncyFeatures = translations[language].bouncyFeatures;
-    const bouncyFeatureList = document.getElementById("bouncy-features");
-    bouncyFeatureList.innerHTML = "";
-    bouncyFeatures.forEach(feature => {
-        const li = document.createElement("li");
-        li.textContent = feature;
-        bouncyFeatureList.appendChild(li);
-    });
+        function applyTranslations() {
+            document.getElementById("name").textContent = translations[language].name;
+            document.getElementById("about-heading").textContent = translations[language].aboutHeading;
+            document.getElementById("about-text").textContent = translations[language].aboutText;
+            document.getElementById("tools-heading").textContent = translations[language].toolsHeading;
+            document.getElementById("bouncy-heading").textContent = translations[language].bouncyHeading;
+            document.getElementById("bouncy-description").textContent = translations[language].bouncyDescription;
+            document.getElementById("bouncy-features-heading").textContent = translations[language].bouncyFeaturesHeading;
+            document.getElementById("kill-apps-title").textContent = translations[language].killAppsTitle;
+            document.getElementById("kill-apps-desc").textContent = translations[language].killAppsDesc;
+            document.getElementById("idle-candy-title").textContent = translations[language].idleCandyTitle;
+            document.getElementById("idle-candy-desc").textContent = translations[language].idleCandyDesc;
+            document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
+            document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
 
-    document.getElementById("kill-apps-title").textContent = translations[language].killAppsTitle;
-    document.getElementById("kill-apps-desc").textContent = translations[language].killAppsDesc;
-    document.getElementById("idle-candy-title").textContent = translations[language].idleCandyTitle;
-    document.getElementById("idle-candy-desc").textContent = translations[language].idleCandyDesc;
-    document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
-    document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
-}
+            // Funkcje w grze
+            const features = translations[language].bouncyFeatures;
+            const ul = document.getElementById("bouncy-features");
+            ul.innerHTML = "";
+            features.forEach(feature => {
+                const li = document.createElement("li");
+                li.textContent = feature;
+                ul.appendChild(li);
+            });
 
+            // Przyciski
+            document.querySelectorAll('a').forEach((btn, index) => {
+                if(index === 0) btn.textContent = translations[language].bouncySteamBtn;
+                else if(index === 1) btn.textContent = translations[language].killAppsBtn;
+                else if(index === 2) btn.textContent = translations[language].idleCandyBtn;
+                else if(index === 3) btn.textContent = translations[language].buildMasterBtn;
+            });
+        }
+
+        // Naładowanie tłumaczeń przy starcie
+        window.onload = applyTranslations;
     </script>
 </body>
 </html>
