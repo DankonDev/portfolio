@@ -317,13 +317,15 @@
             document.querySelectorAll('.btn').forEach((btn) => {
                 if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Build Master: City Island") {
                     btn.textContent = translations[language].buildMasterBtn;
-                }
-                // Pozostałe przyciski
-                else if(btn.textContent.includes('Zobacz na Google Play') && language === 'pl') {
+                } else if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Idle Candy Clicker Tycoon") {
+                    // Dodajemy tłumaczenie dla Idle Candy Clicker Tycoon
+                    btn.textContent = translations[language].idleCandyBtn;
+                } else if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Kill Apps Challenge") {
                     btn.textContent = translations[language].killAppsBtn;
                 }
             });
         }
+
 
         // Naładowanie tłumaczeń przy starcie
         window.onload = applyTranslations;
