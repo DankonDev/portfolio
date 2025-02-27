@@ -65,6 +65,7 @@
         .skill-item img {
             width: 50px;
             height: 50px;
+            background: transparent; /* Usuwa tło z ikonek */
         }
         .skill-item span {
             margin-top: 5px;
@@ -74,19 +75,6 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>O mnie</h1>
-        <p>Jestem doświadczonym twórcą gier i programistą, który prowadził projekty od A do Z. Mam doświadczenie w programowaniu, marketingu i zarządzaniu projektami.</p>
-    </div>
-    
-    <div class="container">
-        <h1>Bouncy Escape</h1>
-        <p>Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym. Oferuje różne tryby gry, personalizację postaci i intensywną rozgrywkę.</p>
-        <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
-        <p>Więcej informacji oraz kod źródłowy znajdziesz tutaj:</p>
-        <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
-    </div>
-    
     <div class="container">
         <h1>Narzędzia i doświadczenie</h1>
         <p>Pracowałem z wieloma technologiami i narzędziami:</p>
@@ -112,6 +100,14 @@
                 <span>Google Ads</span>
             </div>
         </div>
+    </div>
+    
+    <div class="container">
+        <h1>Bouncy Escape</h1>
+        <p>Bouncy Escape to dynamiczna gra platformowa 3D z trybem wieloosobowym. Oferuje różne tryby gry, personalizację postaci i intensywną rozgrywkę.</p>
+        <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
+        <p>Więcej informacji oraz kod źródłowy znajdziesz tutaj:</p>
+        <a href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
     </div>
 </body>
 </html>
