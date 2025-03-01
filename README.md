@@ -205,6 +205,7 @@
             <li>System tworzenia i zarządzania lobby</li>
         </ul>
         <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
+        <a id="bouncy-steam-btn" href="https://store.steampowered.com/app/3545100/Bouncy_Escape__Power_Pack/" class="btn" target="_blank">Zobacz na Steam</a>
     </div>
 
     <div class="container projects-container animate-scroll" id="container-projects">
@@ -256,6 +257,7 @@
                     "System emoji umożliwiający graczom komunikację",
                     "System tworzenia i zarządzania lobby"
                 ],
+                bouncySteamBtn: "Zobacz na Steam",
                 killAppsBtn: "Zobacz na Google Play",
                 idleCandyBtn: "Zobacz na Google Play",
                 buildMasterBtn: "Zobacz na Google Play",
@@ -284,6 +286,7 @@
                     "Emoji system allowing players to communicate",
                     "Lobby creation and management system"
                 ],
+                bouncySteamBtn: "View on Steam",
                 killAppsBtn: "View on Google Play",
                 idleCandyBtn: "View on Google Play",
                 buildMasterBtn: "View on Google Play",
@@ -312,6 +315,7 @@
             document.getElementById("build-master-title").textContent = translations[language].buildMasterTitle;
             document.getElementById("build-master-desc").textContent = translations[language].buildMasterDesc;
             document.getElementById("projects-heading").textContent = translations[language].projectsHeading;
+            document.getElementById("bouncy-steam-btn").textContent = translations[language].bouncySteamBtn;
 
             document.querySelectorAll('.btn').forEach((btn) => {
                 if (btn.parentElement.querySelector('h3') && btn.parentElement.querySelector('h3').textContent === "Build Master: City Island") {
