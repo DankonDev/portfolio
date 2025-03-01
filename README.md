@@ -205,7 +205,7 @@
             <li>System tworzenia i zarządzania lobby</li>
         </ul>
         <img src="screenshot.png" alt="Zrzut ekranu projektu" class="screenshot">
-        <a id="bouncy-steam-btn" href="https://store.steampowered.com/app/3545100/Bouncy_Escape__Power_Pack/" class="btn" target="_blank">Zobacz na Steam</a>
+        <a id="bouncy-steam-btn" href="https://store.steampowered.com/app/3256880/Bouncy_Escape/" class="btn" target="_blank">Zobacz na Steam</a>
     </div>
 
     <div class="container projects-container animate-scroll" id="container-projects">
