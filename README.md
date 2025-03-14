@@ -110,7 +110,6 @@
             color: #fff;
         }
 
-        /* Animacja przy przewijaniu */
         .animate-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -133,7 +132,6 @@
             animation: fadeIn 1.5s ease-in-out !important;
         }
 
-        /* Styl przełącznika języka */
         .language-switcher {
             position: fixed;
             top: 20px;
@@ -231,7 +229,7 @@
     </div>
 
     <script>
-        let language = 'pl'; // Domyślnie polski
+        let language = 'pl';
 
         const translations = {
             pl: {
