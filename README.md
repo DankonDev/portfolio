@@ -249,6 +249,12 @@
         </div>
             <div class="container code-container">
         <pre>
+
+
+/* This Unity script dynamically spawns vehicles across road segments, utilizing a seed value to ensure 
+consistent generation across multiple clients. By synchronizing the seed, each client can accurately 
+predict and render vehicles, even with varying loaded map segments, maintaining a seamless multiplayer experience. */
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
