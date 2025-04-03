@@ -226,6 +226,230 @@
             <p id="build-master-desc">Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto...</p>
             <a id="build-master-btn" href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder" class="btn" target="_blank">Zobacz na Google Play</a>
         </div>
+            <div class="container code-container">
+        <pre>
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Netcode;
+using UnityEngine;
+using TMPro;
+using System;
+
+public class CrossTheRoadSpawner : NetworkBehaviour
+{
+    [Header("Vehicle Settings")]
+    public List&lt;GameObject&gt; vehicles;
+    [Header("Spawn Points")]
+    public Transform left1;
+    public Transform left2;
+    public Transform right1;
+    public Transform right2;
+    [Header("Spawn Config")]
+    public GameObject PointsDetector;
+    public float minSpawnTime = 1f;
+    public float maxSpawnTime = 3f;
+    public float vehicleSpeed = 3f;
+
+    private Transform selectedSpawnPoint1;
+    private Transform selectedSpawnPoint2;
+    private Vector3 moveDirection1;
+    private Vector3 moveDirection2;
+    private float rotationY1;
+    private float rotationY2;
+    public int currentSeed;
+    private System.Random random;
+    private float nextSpawnTime;
+    private float elapsedTime;
+    private float lastSpawnTime = 0f;
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        Debug.Log($"[OnNetworkSpawn] IsServer: {IsServer}, IsClient: {IsClient}");
+    }
+
+    void Start()
+    {
+        if (LobbyData.Instance.isConnected)
+        {
+            Debug.Log("[Start] Connected to Lobby, using Lobby Time.");
+            random = new System.Random(currentSeed);
+            SelectSpawnPoints();
+            InitializeSpawnTimes();
+            lastSpawnTime = CrossTheRoadGameplay.Instance.GetElapsedTime();
+        }
+        else
+        {
+            Debug.Log("[Start] Not connected to Lobby, using Time.time.");
+            random = new System.Random(currentSeed);
+            SelectSpawnPoints();
+            InitializeSpawnTimes();
+            lastSpawnTime = Time.time;
+        }
+        Debug.Log($"[Start] Initial lastSpawnTime: {lastSpawnTime}");
+    }
+
+    void InitializeSpawnTimes()
+    {
+        elapsedTime = 0f;
+        nextSpawnTime = (float)random.NextDouble() * (maxSpawnTime - minSpawnTime) + minSpawnTime;
+        Debug.Log($"[InitializeSpawnTimes] nextSpawnTime: {nextSpawnTime}");
+    }
+
+    void SelectSpawnPoints()
+    {
+        int choice = random.Next(0, 4);
+        Debug.Log($"[SelectSpawnPoints] Choice: {choice}");
+
+        switch (choice)
+        {
+            case 0:
+                selectedSpawnPoint1 = left1;
+                selectedSpawnPoint2 = left2;
+                right1.gameObject.tag = "VehicleDestroyer";
+                right2.gameObject.tag = "VehicleDestroyer";
+                break;
+            case 1:
+                selectedSpawnPoint1 = right1;
+                selectedSpawnPoint2 = right2;
+                left1.gameObject.tag = "VehicleDestroyer";
+                left2.gameObject.tag = "VehicleDestroyer";
+                break;
+            case 2:
+                selectedSpawnPoint1 = left1;
+                selectedSpawnPoint2 = right2;
+                left2.gameObject.tag = "VehicleDestroyer";
+                right1.gameObject.tag = "VehicleDestroyer";
+                break;
+            case 3:
+                selectedSpawnPoint1 = right1;
+                selectedSpawnPoint2 = left2;
+                right2.gameObject.tag = "VehicleDestroyer";
+                left1.gameObject.tag = "VehicleDestroyer";
+                break;
+        }
+
+        moveDirection1 = (selectedSpawnPoint1 == left1 || selectedSpawnPoint1 == left2) ? Vector3.right : Vector3.left;
+        moveDirection2 = (selectedSpawnPoint2 == left1 || selectedSpawnPoint2 == left2) ? Vector3.right : Vector3.left;
+        rotationY1 = (moveDirection1 == Vector3.right) ? 90f : -90f;
+        rotationY2 = (moveDirection2 == Vector3.right) ? 90f : -90f;
+
+        Debug.Log($"[SelectSpawnPoints] selectedSpawnPoint1: {selectedSpawnPoint1.name}, moveDirection1: {moveDirection1}, rotationY1: {rotationY1}");
+        Debug.Log($"[SelectSpawnPoints] selectedSpawnPoint2: {selectedSpawnPoint2.name}, moveDirection2: {moveDirection2}, rotationY2: {rotationY2}");
+
+        if (LobbyData.Instance.isConnected && LobbyData.Instance.isHost)
+        {
+            Debug.Log("[SelectSpawnPoints] SPAWNPOINTS sent to client");
+            UpdateSpawnPointsClientRpc(moveDirection1, moveDirection2, rotationY1, rotationY2, choice);
+        }
+    }
+
+    void Update()
+    {
+        if (LobbyData.Instance.isConnected)
+        {
+            elapsedTime = CrossTheRoadGameplay.Instance.GetElapsedTime();
+        }
+        else
+        {
+            elapsedTime = Time.time;
+        }
+
+        if (elapsedTime - lastSpawnTime >= nextSpawnTime)
+        {
+            Debug.Log($"[Update] Time to spawn vehicle. elapsedTime: {elapsedTime}, lastSpawnTime: {lastSpawnTime}, nextSpawnTime: {nextSpawnTime}");
+            SpawnVehicle();
+            lastSpawnTime = elapsedTime;
+            nextSpawnTime = (float)random.NextDouble() * (maxSpawnTime - minSpawnTime) + minSpawnTime;
+            Debug.Log($"[Update] Next spawn time set to: {nextSpawnTime}");
+        }
+    }
+
+    [ClientRpc]
+    private void UpdateSpawnPointsClientRpc(Vector3 hostMoveDirection1, Vector3 hostMoveDirection2, float hostRotationY1, float hostRotationY2, int hostChoice)
+    {
+        Debug.Log("[UpdateSpawnPointsClientRpc] SPAWNPOINTS client received");
+        Debug.Log($"[UpdateSpawnPointsClientRpc] hostChoice: {hostChoice}, hostMoveDirection1: {hostMoveDirection1}, hostMoveDirection2: {hostMoveDirection2}, hostRotationY1: {hostRotationY1}, hostRotationY2: {hostRotationY2}");
+
+        switch (hostChoice)
+        {
+            case 0:
+                selectedSpawnPoint1 = left1;
+                selectedSpawnPoint2 = left2;
+                right1.gameObject.tag = "VehicleDestroyer";
+                right2.gameObject.tag = "VehicleDestroyer";
+                break;
+            case 1:
+                selectedSpawnPoint1 = right1;
+                selectedSpawnPoint2 = right2;
+                left1.gameObject.tag = "VehicleDestroyer";
+                left2.gameObject.tag = "VehicleDestroyer";
+                break;
+            case 2:
+                selectedSpawnPoint1 = left1;
+                selectedSpawnPoint2 = right2;
+                left2.gameObject.tag = "VehicleDestroyer";
+                right1.gameObject.tag = "VehicleDestroyer";
+                break;
+            case 3:
+                selectedSpawnPoint1 = right1;
+                selectedSpawnPoint2 = left2;
+                right2.gameObject.tag = "VehicleDestroyer";
+                left1.gameObject.tag = "VehicleDestroyer";
+                break;
+        }
+
+        moveDirection1 = hostMoveDirection1;
+        moveDirection2 = hostMoveDirection2;
+        rotationY1 = hostRotationY1;
+        rotationY2 = hostRotationY2;
+
+        Debug.Log($"[UpdateSpawnPointsClientRpc] Client selectedSpawnPoint1: {selectedSpawnPoint1.name}, moveDirection1: {moveDirection1}, rotationY1: {rotationY1}");
+        Debug.Log($"[UpdateSpawnPointsClientRpc] Client selectedSpawnPoint2: {selectedSpawnPoint2.name}, moveDirection2: {moveDirection2}, rotationY2: {rotationY2}");
+    }
+
+    void SpawnVehicle()
+    {
+        if (vehicles.Count > 0)
+        {
+            Transform spawnPoint = random.NextDouble() > 0.5f ? selectedSpawnPoint1 : selectedSpawnPoint2;
+            Vector3 moveDirection = (spawnPoint == selectedSpawnPoint1) ? moveDirection1 : moveDirection2;
+            float rotationY = (spawnPoint == selectedSpawnPoint1) ? rotationY1 : rotationY2;
+
+            int vehicleId = random.Next(0, vehicles.Count);
+            GameObject vehiclePrefab = vehicles[vehicleId];
+
+            GameObject vehicle = Instantiate(vehiclePrefab, spawnPoint.position, Quaternion.Euler(0, rotationY, 0), transform);
+            vehicle.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            vehicle.AddComponent&lt;VehicleMover&gt;().Initialize(moveDirection, vehicleSpeed);
+
+            Debug.Log($"[SpawnVehicle] Spawned vehicle: {vehiclePrefab.name} at {spawnPoint.name} with direction {moveDirection} and rotation {rotationY}");
+        }
+        else
+        {
+            Debug.LogWarning("[SpawnVehicle] No vehicles available to spawn.");
+        }
+    }
+}
+
+public class VehicleMover : MonoBehaviour
+{
+    public Vector3 moveDirection;
+    public float speed;
+
+    public void Initialize(Vector3 direction, float moveSpeed)
+    {
+        moveDirection = direction;
+        speed = moveSpeed;
+        Debug.Log($"[VehicleMover] Initialized with direction: {moveDirection}, speed: {speed}");
+    }
+
+    void Update()
+    {
+        transform.position += moveDirection * speed * Time.deltaTime;
+    }
+}
+        </pre>
     </div>
 
     <script>
