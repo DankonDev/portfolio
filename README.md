@@ -150,7 +150,7 @@
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #333;
+            background: #444; /* Ustawienie tła na kolor taki jak inne kontenery */
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             opacity: 0;
@@ -164,6 +164,8 @@
         .code-container pre {
             margin: 0;
             text-align: left;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
