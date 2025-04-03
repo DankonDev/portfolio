@@ -147,12 +147,14 @@
             background-color: #555;
         }
         .code-container {
-            background-color: #333; /* Ustawienie tła na kolor tła strony */
-            color: #abb2bf;
+            max-width: 800px;
+            margin: 50px auto;
             padding: 20px;
-            border-radius: 8px;
-            margin: 30px auto; /* Wyśrodkowanie kontenera */
-            max-width: 800px; /* Ograniczenie szerokości, aby pasowało do innych kontenerów */
+            background: #444; /* Ustawienie tła na kolor taki jak inne kontenery */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: slideIn 0.8s ease-out forwards;
             text-align: left;
             overflow-x: auto;
             font-family: 'Courier New', monospace;
@@ -241,6 +243,7 @@
             <h3 id="build-master-title">Build Master: City Island</h3>
             <p id="build-master-desc">Gra, w której gracz może zarządzać budową wyspy i rozwijać swoje miasto...</p>
             <a id="build-master-btn" href="https://play.google.com/store/apps/details?id=com.Dankon.BuildMasterCityIsland.BuildCity.CityBuilder.MasterBuilder" class="btn" target="_blank">Zobacz na Google Play</a>
+        </div>
         </div>
             <div class="container code-container">
         <pre>
