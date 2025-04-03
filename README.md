@@ -150,7 +150,7 @@
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background: #444; /* Ustawienie tła na kolor taki jak inne kontenery */
+            background-color: #333;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             opacity: 0;
