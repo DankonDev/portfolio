@@ -146,13 +146,13 @@
         .language-switcher:hover {
             background-color: #555;
         }
-
-                .code-container {
-            background-color: #666;
+        .code-container {
+            background-color: #333; /* Ustawienie tła na kolor tła strony */
             color: #abb2bf;
             padding: 20px;
             border-radius: 8px;
-            margin-top: 30px;
+            margin: 30px auto; /* Wyśrodkowanie kontenera */
+            max-width: 800px; /* Ograniczenie szerokości, aby pasowało do innych kontenerów */
             text-align: left;
             overflow-x: auto;
             font-family: 'Courier New', monospace;
