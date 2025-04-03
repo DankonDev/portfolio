@@ -147,6 +147,22 @@
             background-color: #555;
         }
 
+                .code-container {
+            background-color: #666;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: left;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .code-container pre {
+            margin: 0;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
