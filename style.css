@@ -319,44 +319,40 @@ span{
     padding: 12rem 9% 8rem;
     color: white;
     margin-top: 6rem;
-    text-align: center;
 }
 
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 4rem;
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
 
-.skill {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #A0C878;
-    border-radius: 1.5rem;
-    padding: 2rem;
-    width: 14rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.skill-box {
     background-color: #1a1a1a;
+    border: 1px solid #A0C878;
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(160, 200, 120, 0.1);
 }
 
-.skill i {
-    font-size: 3rem;
+.skill-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(160, 200, 120, 0.3);
+}
+
+.skill-box i {
+    font-size: 4rem;
     color: #A0C878;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.skill span {
-    font-size: 1.4rem;
+.skill-box p {
+    font-size: 1.6rem;
     font-weight: 500;
     color: white;
-}
-
-.skill:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(160, 200, 120, 0.4);
 }
 
 
