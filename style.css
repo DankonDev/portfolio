@@ -269,9 +269,11 @@ span{
 }
 .projects {
     background-color: #111;
-    padding: 6rem 9%;
+    padding: 12rem 9% 8rem;
     color: white;
+    margin-top: 6rem;
 }
+
 
 .section-title {
     font-size: 4rem;
@@ -282,7 +284,7 @@ span{
 }
 
 .project {
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     padding: 3rem;
     border: 1px solid #A0C878;
     border-radius: 2rem;
@@ -312,4 +314,15 @@ span{
     font-size: 1.4rem;
     padding: 0.8rem 2rem;
 }
+
+nav a[href="#home"]:target,
+#home:target ~ header nav a[href="#home"],
+#projects:target ~ header nav a[href="#projects"],
+#skills:target ~ header nav a[href="#skills"],
+#code:target ~ header nav a[href="#code"],
+#contact:target ~ header nav a[href="#contact"] {
+    color: #A0C878;
+    border-bottom: 3px solid #A0C878;
+}
+
 
