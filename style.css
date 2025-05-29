@@ -500,7 +500,11 @@ span{
   max-height: 300px;
   overflow: hidden;
   position: relative;
-  transition: max-height 0.4s ease;
+  transition: max-height 0.5s ease;
+}
+
+.code-wrapper.expanded {
+  max-height: 2000px;
 }
 
 .code-wrapper.collapsed::after {
@@ -514,8 +518,14 @@ span{
   pointer-events: none;
 }
 
+
 .toggle-code-btn {
   margin-top: 10px;
+  padding: 6px 14px;
+  font-size: 14px;
+  width: auto;
+  display: inline-block;
+  align-self: flex-start;
 }
 
 
