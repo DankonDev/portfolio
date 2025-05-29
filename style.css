@@ -445,13 +445,11 @@ span{
     text-decoration: underline;
 }
 
-section::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: black;
-    margin-top: 6rem;
+.section-divider {
+  height: 2px;
+  background-color: black;
+  width: 100%;
+  margin: 0;
 }
 
 
