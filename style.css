@@ -355,6 +355,35 @@ span{
     color: white;
 }
 
+.code-samples {
+    background-color: #111;
+    padding: 5rem 9%;
+    color: white;
+}
+
+.code-box {
+    background-color: #1e1e1e;
+    border-left: 5px solid #A0C878;
+    padding: 2rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 0 15px rgba(160, 200, 120, 0.3);
+}
+
+.code-box pre {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #eee;
+}
+
+.code-box code {
+    font-family: 'Courier New', monospace;
+    color: #dcdcdc;
+    display: block;
+    white-space: pre;
+}
+
 
 
 nav a[href="#home"]:target,
