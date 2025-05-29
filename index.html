@@ -121,6 +121,15 @@ public class PlayerMovement : MonoBehaviour
 }
     </code></pre>
   </div>
+  <button class="btn show-gif-btn">Check Results</button>
+
+<div class="gif-modal" id="gifModal">
+  <div class="gif-modal-content">
+    <span class="close-btn" id="closeGif">&times;</span>
+    <img src="WorldGenerator.gif" alt="Generating World" />
+  </div>
+</div>
+
 </section>
 <div class="section-divider"></div>
 <section class="contact" id="contact">
@@ -157,6 +166,23 @@ public class PlayerMovement : MonoBehaviour
         });
     });
 </script>
+
+<script>
+  document.querySelector('.show-gif-btn').addEventListener('click', () => {
+    document.getElementById('gifModal').style.display = 'flex';
+  });
+
+  document.getElementById('closeGif').addEventListener('click', () => {
+    document.getElementById('gifModal').style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === document.getElementById('gifModal')) {
+      document.getElementById('gifModal').style.display = 'none';
+    }
+  });
+</script>
+
 
 </body>
 </html>
