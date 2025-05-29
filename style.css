@@ -357,7 +357,7 @@ span{
 
 .code-samples {
     background-color: #111;
-    padding: 5rem 9%;
+    padding: 12rem 9% 8rem;
     color: white;
 }
 
@@ -366,8 +366,8 @@ span{
     border: 2px solid #A0C878;
     border-radius: 8px;
     padding: 2rem;
-    margin-bottom: 4rem;
-    width: 100%;
+    margin: 2rem 0; /* już nie auto */
+    width: 100%; /* pełna szerokość kontenera */
     box-shadow: 0 0 15px rgba(160, 200, 120, 0.3);
 }
 
