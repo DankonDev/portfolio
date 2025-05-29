@@ -420,7 +420,7 @@ span{
 
 .contact-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(160, 200, 120, 0.4);
+    box-shadow: 0 0 30px #a0c87866;
 }
 
 .contact-box p {
@@ -514,7 +514,7 @@ span{
   left: 0;
   width: 100%;
   height: 60px;
-  background: linear-gradient(to bottom, rgba(30,30,30,0), rgba(30,30,30,1));
+  background: linear-gradient(to bottom, #a0c87866, #a0c87866);
   pointer-events: none;
 }
 
