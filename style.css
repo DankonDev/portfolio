@@ -362,20 +362,28 @@ span{
 }
 
 .code-box {
-    background-color: #1e1e1e;
-    border-left: 5px solid #A0C878;
+    background-color: #2d2d2d; /* dopasowane do Prism Tomorrow */
+    border: 2px solid #A0C878;
+    border-radius: 8px;
     padding: 2rem;
-    border-radius: 10px;
-    overflow-x: auto;
+    margin: 2rem auto;
+    max-width: 800px;
     box-shadow: 0 0 15px rgba(160, 200, 120, 0.3);
 }
 
 .code-box pre {
     margin: 0;
-    font-size: 1.4rem;
-    line-height: 1.6;
-    color: #eee;
+    overflow-x: auto;
 }
+
+/* Jeśli chcesz, żeby cały <section> był wyśrodkowany: */
+.code-samples {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
 
 .code-box code {
     font-family: 'Courier New', monospace;
