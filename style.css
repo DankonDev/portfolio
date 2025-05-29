@@ -371,7 +371,7 @@ span{
     flex-direction: column;
     border: 1px solid #A0C878;
     border-radius: 2rem;
-    background-color: #1a1a1a;
+    background-color: #2b2b2b;
     box-shadow: 0 0 20px rgba(160, 200, 120, 0.2);
     transition: transform 0.3s ease;
 }
@@ -386,7 +386,7 @@ span{
 .code-box pre {
     margin: 0;
     padding: 3rem;
-    background-color: #2b2b2b;
+    background-color: transparent;
     width: 100%;
     border-radius: 2rem;
     box-sizing: border-box;
