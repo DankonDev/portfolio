@@ -120,6 +120,12 @@ public class PlayerMovement : MonoBehaviour
     }
 }
     </code></pre>
+    <button class="btn show-gif-btn">See Result</button>
+      <div class="gif-modal" id="gifModal">
+    <div class="gif-modal-content">
+      <span class="gif-close">&times;</span>
+      <img src="WorldGenerator.gif" alt="World Generator Preview" />
+    </div>
   </div>
 </section>
 <div class="section-divider"></div>
@@ -156,6 +162,23 @@ public class PlayerMovement : MonoBehaviour
             }
         });
     });
+</script>
+
+<script>
+  document.querySelector('.show-gif-btn').addEventListener('click', () => {
+      document.getElementById('gifModal').style.display = 'flex';
+  });
+
+  document.querySelector('.gif-close').addEventListener('click', () => {
+      document.getElementById('gifModal').style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+      const modal = document.getElementById('gifModal');
+      if (e.target === modal) {
+          modal.style.display = 'none';
+      }
+  });
 </script>
 
 </body>
