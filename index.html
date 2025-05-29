@@ -107,18 +107,189 @@
   <h2 class="section-title">Code Samples</h2>
   <div class="code-box">
     <pre><code class="language-csharp">
-// Example C# script
-using UnityEngine;
+// This script procedurally generates a world made of cubic blocks using a seed.
+// Each generated world consists of an island surrounded by water, 
+// a random number of trees within a defined range, mountains with darker stone at the base, 
+// copper, iron, and gold ores, and snowy peaks at higher elevations. 
+// The edge of each island features a beach made of sand.
+// In the Inspector, you can configure parameters such as world size, island radius, noise scale (which controls the terrain variation and detail),
+// and the number of trees to be generated.
 
-public class PlayerMovement : MonoBehaviour
+
+using UnityEngine;
+using System.Collections.Generic;
+
+public class WorldGenerator : MonoBehaviour
 {
-    public float speed = 5f;
-    void Update()
+    [Header("Scene Organization")]
+    public Transform blocksParent;
+
+
+    [Space(15)]
+    [Header("Terrain Prefabs")]
+    public GameObject waterBlock;
+    public GameObject dirtBlock;
+    public GameObject grassBlock;
+    public GameObject stoneBlock;
+    public GameObject sandBlock;
+    public GameObject sandVariantBlock;
+    public GameObject gravelBlock;
+    public GameObject dirtSnowBlock;
+    public GameObject blackstoneBlock;
+    public GameObject copperOreBlock;
+    public GameObject goldOreBlock;
+    public GameObject silverOreBlock;
+    [Space(5)]
+    public GameObject[] treePrefabs;
+
+
+    [Space(15)]
+    [Header("World Settings")]
+    public int worldSize = 50;
+    public float blockSize = 2f;
+    [Space(5)]
+    public float islandRadius = 30;
+    public float noiseScale = 0.3f;
+    [Space(5)]
+    public int minTrees = 6;
+    public int maxTrees = 15;
+
+
+    private int spawnedBlockCount = 0;
+    private List<Vector3> potentialTreePositions = new List<Vector3>();
+
+    public void GenerateWorld()
     {
-        float move = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * move * speed * Time.deltaTime);
+        if (blocksParent != null)
+        {
+            foreach (Transform child in blocksParent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        spawnedBlockCount = 0;
+        potentialTreePositions.Clear();
+
+        int seed = Random.Range(0, int.MaxValue);
+        Random.InitState(seed);
+        float noiseOffsetX = Random.Range(0f, 1000f);
+        float noiseOffsetZ = Random.Range(0f, 1000f);
+        float dynamicIslandHeight = Random.Range(2f, 8f);
+
+        Vector3 startPosition = -new Vector3(worldSize / 2f * blockSize, 0, worldSize / 2f * blockSize);
+
+        for (int x = 0; x < worldSize; x++)
+        {
+            for (int z = 0; z < worldSize; z++)
+            {
+                Vector3 flatPos = new Vector3(x * blockSize, 0, z * blockSize) + startPosition;
+
+                float distFromCenter = Vector2.Distance(new Vector2(x, z), new Vector2(worldSize / 2, worldSize / 2));
+                float islandNoise = Mathf.PerlinNoise((x + noiseOffsetX) * noiseScale, (z + noiseOffsetZ) * noiseScale);
+                float islandFactor = Mathf.Clamp01((islandRadius - distFromCenter + islandNoise * 10f) / islandRadius);
+
+                if (islandFactor <= 0.5f)
+                {
+                    Instantiate(waterBlock, flatPos, Quaternion.identity, blocksParent);
+                    continue;
+                }
+
+                float elevationNoise = Mathf.PerlinNoise((x + noiseOffsetX) * 0.1f, (z + noiseOffsetZ) * 0.1f);
+                int baseHeight = Mathf.RoundToInt(elevationNoise * dynamicIslandHeight);
+                float mountainNoise = Mathf.PerlinNoise((x + noiseOffsetX) * 0.05f, (z + noiseOffsetZ) * 0.05f);
+                bool isMountain = mountainNoise > 0.55f;
+                float mountainFactor = Mathf.InverseLerp(0.55f, 1f, mountainNoise);
+                int mountainHeight = isMountain ? Mathf.RoundToInt(Mathf.Lerp(4, 12, mountainFactor)) : 0;
+
+                int totalHeight = baseHeight + mountainHeight;
+                bool nearEdge = islandFactor < 0.6f;
+
+                for (int y = 0; y <= totalHeight; y++)
+                {
+                    Vector3 blockPos = flatPos + Vector3.up * y * blockSize;
+                    GameObject blockToPlace;
+
+                    if (y == totalHeight)
+                    {
+                        if (isMountain && totalHeight >= 10)
+                        {
+                            blockToPlace = dirtSnowBlock;
+                        }
+                        else if (nearEdge)
+                        {
+                            blockToPlace = Random.value > 0.5f ? sandBlock : sandVariantBlock;
+                        }
+                        else
+                        {
+                            blockToPlace = grassBlock;
+                            potentialTreePositions.Add(blockPos + Vector3.up * blockSize);
+                        }
+                    }
+
+                    else if (isMountain)
+                    {
+                        if (y < 3)
+                        {
+                            blockToPlace = blackstoneBlock;
+                        }
+                        else if (Random.value < 0.08f)
+                        {
+                            blockToPlace = GetRandomOreBlock();
+                        }
+                        else
+                        {
+                            blockToPlace = Random.value > 0.5f ? stoneBlock : gravelBlock;
+                        }
+                    }
+                    else if (y > totalHeight * 0.7f)
+                    {
+                        blockToPlace = Random.value > 0.5f ? stoneBlock : gravelBlock;
+                    }
+                    else
+                    {
+                        blockToPlace = dirtBlock;
+                    }
+
+                    Instantiate(blockToPlace, blockPos, Quaternion.identity, blocksParent);
+                    spawnedBlockCount++;
+                }
+            }
+        }
+
+
+        PlaceTrees();
+
+        Debug.Log($"Generated new world. Seed: {seed}, Spawned blocks count: {spawnedBlockCount}");
+    }
+
+    private GameObject GetRandomOreBlock()
+    {
+        float r = Random.value;
+        if (r < 0.33f) return copperOreBlock;
+        if (r < 0.66f) return silverOreBlock;
+        return goldOreBlock;
+    }
+
+    private void PlaceTrees()
+    {
+        if (treePrefabs == null || treePrefabs.Length == 0 || potentialTreePositions.Count == 0)
+            return;
+
+        int treeCount = Random.Range(minTrees, maxTrees + 1);
+        treeCount = Mathf.Min(treeCount, potentialTreePositions.Count);
+
+        for (int i = 0; i < treeCount; i++)
+        {
+            int index = Random.Range(0, potentialTreePositions.Count);
+            Vector3 treePos = potentialTreePositions[index];
+            potentialTreePositions.RemoveAt(index);
+
+            GameObject treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
+            Instantiate(treePrefab, treePos, Quaternion.identity, blocksParent);
+        }
     }
 }
+
     </code></pre>
   </div>
   <button class="btn show-gif-btn">Check Results</button>
