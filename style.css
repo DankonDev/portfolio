@@ -444,7 +444,7 @@ span{
 }
 
 .section-divider {
-  height: 2px;
+  height: 10px;
   background-color: black;
   width: 100%;
   margin: 0;
