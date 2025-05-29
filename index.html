@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
     <title>Portfolio Website</title>
 </head>
 <body>
@@ -92,6 +95,26 @@
       <p>Gimp</p>
   </div>
 </section>
+<section class="code-samples" id="code">
+  <h2 class="section-title">Code Samples</h2>
+  <div class="code-box">
+    <pre><code class="language-csharp">
+// Example C# script
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour
+{
+    public float speed = 5f;
+    void Update()
+    {
+        float move = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * move * speed * Time.deltaTime);
+    }
+}
+    </code></pre>
+  </div>
+</section>
+
 
 <script>
     const sections = document.querySelectorAll('section');
