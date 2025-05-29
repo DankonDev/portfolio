@@ -321,35 +321,40 @@ span{
     margin-top: 6rem;
 }
 
-.skills-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 4rem;
+    margin-top: 6rem;
 }
 
-.skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.skill-box {
+    background-color: #1a1a1a;
+    border: 1px solid #A0C878;
+    border-radius: 2rem;
+    padding: 3rem 2rem;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(160, 200, 120, 0.1);
 }
 
-.skill-item i {
-    font-size: 6rem;
-    margin-bottom: 1rem;
+.skill-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(160, 200, 120, 0.3);
 }
 
-.skill-item p {
-    font-size: 1.6rem;
+.skill-box i {
+    font-size: 4rem;
     color: #A0C878;
-    font-weight: 500;
+    margin-bottom: 1.5rem;
 }
 
-.skill-item:hover {
-    transform: scale(1.15);
+.skill-box p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
 }
+
 
 
 nav a[href="#home"]:target,
