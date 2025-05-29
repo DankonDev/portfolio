@@ -524,15 +524,10 @@ span{
   padding: 6px 14px;
   font-size: 14px;
   display: block;
-  border-radius: 4rem;
-  border: 2px solid #A0C878;
-  background-color: black;
-  color: #A0C878;
-  cursor: pointer;
-  transition: 0.3s ease;
+  align-self: flex-start;
   text-align: center;
+  transition: 0.3s ease;
 }
-
 
 
 
