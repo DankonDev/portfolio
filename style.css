@@ -379,15 +379,6 @@ span{
     overflow-x: auto;
 }
 
-/* Jeśli chcesz, żeby cały <section> był wyśrodkowany: */
-.code-samples {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4rem 2rem;
-}
-
-
 .code-box code {
     font-family: 'Courier New', monospace;
     color: #dcdcdc;
