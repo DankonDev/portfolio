@@ -527,7 +527,7 @@ span{
   display: block;
   border-radius: 4rem;
   border: 2px solid #A0C878;
-  background-color: black;
+  background-color: transparent;
   color: #A0C878;
   cursor: pointer;
   transition: 0.3s ease;
