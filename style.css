@@ -402,6 +402,48 @@ span{
     color: #dcdcdc;
     width: 100%;
 }
+.contact {
+    background-color: #111;
+    padding: 12rem 9% 8rem;
+    color: white;
+    text-align: center;
+}
+
+.contact-box {
+    background-color: #1a1a1a;
+    border: 1px solid #A0C878;
+    border-radius: 2rem;
+    padding: 4rem 3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 25px rgba(160, 200, 120, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(160, 200, 120, 0.4);
+}
+
+.contact-box p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.email-link {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #A0C878;
+    word-break: break-all;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
 
 
 
