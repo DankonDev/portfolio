@@ -362,14 +362,16 @@ span{
 }
 
 .code-box {
+    max-width: 800px; /* dostosuj do szerokości .project */
+    width: 100%;
+    margin: 2rem auto; /* auto dla osi X -> wyśrodkowanie */
     background-color: #2d2d2d;
     border: 2px solid #A0C878;
     border-radius: 8px;
     padding: 2rem;
-    margin: 2rem 0; /* już nie auto */
-    width: 100%; /* pełna szerokość kontenera */
     box-shadow: 0 0 15px rgba(160, 200, 120, 0.3);
 }
+
 
 
 .code-box pre {
