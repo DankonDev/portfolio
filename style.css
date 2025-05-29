@@ -516,6 +516,7 @@ span{
   height: 60px;
   background: linear-gradient(to bottom, transparent, #111);
   pointer-events: none;
+  display: none;
 }
 
 
@@ -527,7 +528,7 @@ span{
   display: block;
   border-radius: 4rem;
   border: 2px solid #A0C878;
-  background-color: transparent;
+  background-color: black;
   color: #A0C878;
   cursor: pointer;
   transition: 0.3s ease;
