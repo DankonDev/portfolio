@@ -362,14 +362,15 @@ span{
 }
 
 .code-box {
-    background-color: #2d2d2d; /* dopasowane do Prism Tomorrow */
-    border: 2px solid #A0C878;
-    border-radius: 8px;
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 1200px;
-    box-shadow: 0 0 15px rgba(160, 200, 120, 0.3);
+    background-color: #1e1e1e;
+    padding: 3rem; /* taki sam jak .project */
+    border-radius: 2rem;
+    border: 1px solid #A0C878;
+    box-shadow: 0 0 20px rgba(160, 200, 120, 0.2);
+    margin-bottom: 6rem;
+    margin-top: 6rem;
 }
+
 
 .code-box pre {
     margin: 0;
