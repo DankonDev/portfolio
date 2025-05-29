@@ -106,7 +106,8 @@
 <section class="code-samples" id="code">
   <h2 class="section-title">Code Samples</h2>
   <div class="code-box">
-    <pre><code class="language-csharp">
+    <div class="code-wrapper collapsed" id="codeWrapper">
+            <pre><code class="language-csharp">
 // This script procedurally generates a world made of cubic blocks using a seed.
 // Each generated world consists of an island surrounded by water, 
 // a random number of trees within a defined range, mountains with darker stone at the base, 
@@ -292,6 +293,8 @@ public class WorldGenerator : MonoBehaviour
 
     </code></pre>
   </div>
+  <button class="btn toggle-code-btn" onclick="toggleCode()">Show Full Code</button>
+  </div>
   <button class="btn show-gif-btn">Check Results</button>
 
 <div class="gif-modal" id="gifModal">
@@ -352,6 +355,17 @@ public class WorldGenerator : MonoBehaviour
       document.getElementById('gifModal').style.display = 'none';
     }
   });
+</script>
+
+<script>
+  function toggleCode() {
+    const wrapper = document.getElementById('codeWrapper');
+    const btn = document.querySelector('.toggle-code-btn');
+    
+    wrapper.classList.toggle('collapsed');
+    const isCollapsed = wrapper.classList.contains('collapsed');
+    btn.textContent = isCollapsed ? "Show Full Code" : "Hide Code";
+  }
 </script>
 
 
