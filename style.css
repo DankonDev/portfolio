@@ -514,9 +514,10 @@ span{
   left: 0;
   width: 100%;
   height: 60px;
-  background: linear-gradient(to bottom, #a0c87866, #a0c87866);
+  background: linear-gradient(to bottom, transparent, #111);
   pointer-events: none;
 }
+
 
 
 .toggle-code-btn {
@@ -527,6 +528,7 @@ span{
   border-radius: 4rem;
   border: 2px solid #A0C878;
   background-color: black;
+  color: #A0C878;
   cursor: pointer;
   transition: 0.3s ease;
   text-align: center;
