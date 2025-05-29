@@ -516,7 +516,6 @@ span{
   height: 60px;
   background: linear-gradient(to bottom, transparent, #111);
   pointer-events: none;
-  display: none;
 }
 
 
