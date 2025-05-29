@@ -361,12 +361,21 @@ public class WorldGenerator : MonoBehaviour
   function toggleCode() {
     const wrapper = document.getElementById('codeWrapper');
     const btn = document.querySelector('.toggle-code-btn');
-    
-    wrapper.classList.toggle('collapsed');
+
     const isCollapsed = wrapper.classList.contains('collapsed');
-    btn.textContent = isCollapsed ? "Show Full Code" : "Hide Code";
+
+    if (isCollapsed) {
+      wrapper.classList.remove('collapsed');
+      wrapper.classList.add('expanded');
+      btn.textContent = "Hide Code";
+    } else {
+      wrapper.classList.remove('expanded');
+      wrapper.classList.add('collapsed');
+      btn.textContent = "Show Full Code";
+    }
   }
 </script>
+
 
 
 </body>
