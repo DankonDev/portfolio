@@ -295,6 +295,16 @@ span{
   margin-bottom: 4rem;
 }
 
+.inline-link {
+  color: #4DA1FF;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.inline-link:hover {
+  color: #2C78D1;
+}
+
 .project-header {
   display: flex;
   align-items: center;
