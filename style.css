@@ -292,6 +292,7 @@ span{
   background-color: #1a1a1a;
   box-shadow: 0 0 20px rgba(160, 200, 120, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 4rem;
 }
 
 .project-header {
@@ -311,7 +312,7 @@ span{
   gap: 0.5rem;
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
 }
 
 .project-tech li {
