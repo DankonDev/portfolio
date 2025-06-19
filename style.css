@@ -283,13 +283,19 @@ span{
 }
 
 .project {
-    margin-bottom: 6rem;
-    padding: 3rem;
-    border: 1px solid #A0C878;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background-color: #111;
     border-radius: 2rem;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 20px rgba(160, 200, 120, 0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 0 1rem rgba(160, 200, 120, 0.2);
+}
+
+.project-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .project:hover {
