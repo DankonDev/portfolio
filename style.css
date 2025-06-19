@@ -283,13 +283,40 @@ span{
 }
 
 .project {
-    margin-bottom: 6rem;
-    padding: 3rem;
-    border: 1px solid #A0C878;
-    border-radius: 2rem;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 20px rgba(160, 200, 120, 0.2);
-    transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.project-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.project-tech li {
+  background: #eee;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
 .project:hover {
